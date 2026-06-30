@@ -44,20 +44,20 @@ const navItems = [
 ];
 
 const resourceCards = [
-  ["Respiración guiada", "Ejercicios para calmar tu mente y reducir el estrés.", Leaf, "12 recursos", "from-emerald-50 to-white"],
-  ["Meditación breve", "Prácticas cortas para conectar contigo.", Sparkles, "10 recursos", "from-indigo-50 to-white"],
-  ["Diario emocional", "Reflexiona, comprende y libera lo que sientes.", BookOpen, "9 recursos", "from-amber-50 to-white"],
-  ["Audios de calma", "Sonidos y narraciones para relajarte.", Headphones, "14 recursos", "from-sky-50 to-white"],
-  ["Técnicas para ansiedad", "Estrategias para manejar la ansiedad diaria.", Cloud, "11 recursos", "from-teal-50 to-white"],
-  ["Pausas activas", "Movimiento y estiramientos para recargar energía.", Footprints, "8 recursos", "from-orange-50 to-white"],
-  ["Sueño y descanso", "Mejora tu descanso y calidad de sueño.", Moon, "9 recursos", "from-blue-50 to-white"],
-  ["Checklist de autocuidado", "Listas prácticas para cuidar tu día.", ClipboardCheck, "7 recursos", "from-emerald-50 to-white"],
+  ["Respiración guiada", "Ejercicios para calmar tu mente y reducir el estrés.", Leaf, "12 recursos", "from-emerald-50 to-white", "/categoria_1_respiracion_guiada.png"],
+  ["Meditación breve", "Prácticas cortas para conectar contigo.", Sparkles, "10 recursos", "from-indigo-50 to-white", "/categoria_2_meditacion_breve.png"],
+  ["Diario emocional", "Reflexiona, comprende y libera lo que sientes.", BookOpen, "9 recursos", "from-amber-50 to-white", "/categoria_3_diario_emocional.png"],
+  ["Audios de calma", "Sonidos y narraciones para relajarte.", Headphones, "14 recursos", "from-sky-50 to-white", "/categoria_4_audios_de_calma.png"],
+  ["Técnicas para ansiedad", "Estrategias para manejar la ansiedad diaria.", Cloud, "11 recursos", "from-teal-50 to-white", "/categoria_5_tecnicas_ansiedad.png"],
+  ["Pausas activas", "Movimiento y estiramientos para recargar energía.", Footprints, "8 recursos", "from-orange-50 to-white", "/categoria_6_pausas_activas.png"],
+  ["Sueño y descanso", "Mejora tu descanso y calidad de sueño.", Moon, "9 recursos", "from-blue-50 to-white", "/categoria_7_sueno_descanso.png"],
+  ["Checklist de autocuidado", "Listas prácticas para cuidar tu día.", ClipboardCheck, "7 recursos", "from-emerald-50 to-white", "/categoria_8_checklist_autocuidado.png"],
 ];
 
 const supportOptions = [
-  ["Chat de orientación", "Habla con alguien cuando necesites claridad y contención.", MessageCircle],
-  ["Primeros auxilios emocionales", "Guías rápidas para momentos de ansiedad, estrés o saturación.", Heart],
-  ["Red profesional", "Conexión segura con especialistas cuando haga falta.", Users],
+  ["Chat de orientación", "Habla con alguien cuando necesites claridad y contención.", MessageCircle, "/apoyo_chat_mujer_celular.png"],
+  ["Primeros auxilios emocionales", "Guías rápidas para momentos de ansiedad, estrés o saturación.", Heart, "/apoyo_mujer_alerta.png"],
+  ["Red profesional", "Conexión segura con especialistas cuando haga falta.", Users, "/apoyo_profesional_laptop.png"],
 ];
 
 const plannerItems = [
@@ -65,6 +65,23 @@ const plannerItems = [
   ["Clase", "Proyecto de investigación", "10:00 AM"],
   ["Pausa", "Check-in emocional", "1:00 PM"],
   ["Estudio", "Bloque de lectura", "4:30 PM"],
+];
+
+const organizationTools = [
+  ["Planner semanal", "Ordena tus clases, tareas y pausas.", "/herramienta_1_planner_semanal.png"],
+  ["Calendario de entregas", "Ten fechas importantes siempre visibles.", "/herramienta_2_calendario_entregas.png"],
+  ["Priorización de tareas", "Distingue lo urgente de lo importante.", "/herramienta_3_priorizacion_tareas.png"],
+  ["Técnica Pomodoro", "Estudia por bloques sin agotarte.", "/herramienta_4_tecnica_pomodoro.png"],
+  ["Equilibrio estudio-descanso", "Cuida tu energía durante la semana.", "/herramienta_5_equilibrio_estudio_descanso.png"],
+  ["Seguimiento de metas", "Mide avances pequeños y constantes.", "/herramienta_6_seguimiento_metas.png"],
+];
+
+const organizationTips = [
+  ["Planifica con anticipación", "/consejo_1_planifica_anticipacion.png"],
+  ["Duerme bien", "/consejo_2_duerme_bien.png"],
+  ["Toma pausas activas", "/consejo_3_toma_pausas_activas.png"],
+  ["Pide apoyo", "/consejo_4_pide_apoyo.png"],
+  ["Confía en tu proceso", "/consejo_5_confia_proceso.png"],
 ];
 
 function Header() {
@@ -101,7 +118,7 @@ function Header() {
           <span>Modo Calma</span>
         </button>
 
-        <nav className={cn("flex justify-center gap-6 text-[12px] font-black max-xl:gap-4 max-lg:absolute max-lg:left-0 max-lg:right-0 max-lg:top-[58px] max-lg:hidden max-lg:grid max-lg:gap-0 max-lg:border-b max-lg:border-[#cbe8ee] max-lg:bg-white max-lg:px-6 max-lg:py-3", open && "max-lg:grid")}>
+        <nav className={cn("flex justify-center gap-6 text-[12px] font-black max-xl:gap-4 max-lg:absolute max-lg:left-0 max-lg:right-0 max-lg:top-[58px] max-lg:hidden max-lg:gap-0 max-lg:border-b max-lg:border-[#cbe8ee] max-lg:bg-white max-lg:px-6 max-lg:py-3", open && "max-lg:grid")}>
           {navItems.map(([id, label]) => (
             <button key={id} onClick={() => goTo(id)} className="relative whitespace-nowrap py-5 max-lg:py-3">
               {label}
@@ -167,8 +184,11 @@ function Hero() {
             </div>
           </div>
         </div>
-        <div className="relative min-h-[385px] bg-[#edf8fb]">
-          <Image className="hero-image" src="/hero.png" alt="Estudiantes universitarios conversando en el campus" fill priority sizes="(max-width: 1024px) 100vw, 58vw" />
+        <div className="relative grid min-h-[385px] place-items-center overflow-hidden bg-[#edf8fb] px-8 py-10 max-lg:min-h-[310px] max-sm:px-4">
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white/80 to-transparent" />
+          <div className="absolute -right-20 top-10 size-[250px] rounded-full bg-white/55" />
+          <div className="absolute left-12 top-12 size-24 rounded-full bg-[#d5f6fb]/80" />
+          <Image className="hero-image relative z-10" src="/hero.png" alt="Estudiantes universitarios conversando en el campus" width={648} height={257} priority sizes="(max-width: 1024px) calc(100vw - 48px), 648px" />
         </div>
       </div>
       <HowHelp />
@@ -178,10 +198,10 @@ function Hero() {
 
 function HowHelp() {
   const items = [
-    ["Recursos de bienestar", "Ejercicios de respiración, meditación, relajación y más para tu día a día.", Leaf, "from-emerald-50"],
-    ["Apoyo emocional", "Habla con profesionales, recibe orientación y no estás solo.", MessageCircle, "from-blue-50"],
-    ["Organización académica", "Planifica tu tiempo, organiza tus estudios y reduce el estrés.", CalendarDays, "from-violet-50"],
-    ["Conoce tu progreso", "Reflexiona sobre tu estado emocional y da seguimiento.", BarChart3, "from-cyan-50"],
+    ["Recursos de bienestar", "Ejercicios de respiración, meditación, relajación y más para tu día a día.", Leaf, "from-emerald-50", "/recurso_1_respiracion_478.png"],
+    ["Apoyo emocional", "Habla con profesionales, recibe orientación y no estás solo.", MessageCircle, "from-blue-50", "/apoyo_estudiante_tablet.png"],
+    ["Organización académica", "Planifica tu tiempo, organiza tus estudios y reduce el estrés.", CalendarDays, "from-violet-50", "/organizacion_dos_estudiantes.png"],
+    ["Conoce tu progreso", "Reflexiona sobre tu estado emocional y da seguimiento.", BarChart3, "from-cyan-50", "/cuadro_3_mockup_celular.png"],
   ];
   return (
     <div className="bg-white px-16 pb-5 pt-4 max-lg:px-6">
@@ -190,10 +210,13 @@ function HowHelp() {
         <p className="mt-1 text-xs font-extrabold text-[#6b8796]">Herramientas y acompañamiento para tu bienestar integral en la universidad.</p>
       </div>
       <div className="mx-auto mt-4 grid max-w-[1090px] grid-cols-4 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1">
-        {items.map(([title, text, Icon, gradient]) => (
+        {items.map(([title, text, Icon, gradient, image]) => (
           <Card key={title} className={cn("border-0 bg-gradient-to-br to-white shadow-none", gradient)}>
-            <CardContent className="grid min-h-[100px] grid-cols-[62px_1fr] items-center gap-4 p-5">
-              <TrustIcon><Icon className="size-7" /></TrustIcon>
+            <CardContent className="grid min-h-[116px] grid-cols-[76px_1fr] items-center gap-4 p-4">
+              <div className="relative h-[76px] overflow-hidden rounded-[12px] bg-white/70">
+                <Image className="object-contain p-1" src={image} alt="" fill sizes="76px" />
+                <span className="absolute left-1 top-1 grid size-7 place-items-center rounded-full bg-white/90 text-[#047984]"><Icon className="size-4" /></span>
+              </div>
               <div><h3 className="text-sm font-black">{title}</h3><p className="mt-1 text-[11px] font-bold leading-snug text-[#33566a]">{text}</p><Link className="mt-2 inline-block text-[11px] font-black text-[#047984]" href="#recursos">Saber más →</Link></div>
             </CardContent>
           </Card>
@@ -232,10 +255,10 @@ function PrivacyBand({ compact = false }) {
 
 function HowWorks() {
   const steps = [
-    ["1", "Haz tu check-in emocional", "Responde unas preguntas rápidas y anónimas sobre cómo te sientes.", "crop-student-left", ["Rápido", "100% privado"], Heart],
-    ["2", "Recibe orientación inmediata", "Obtén recomendaciones personalizadas con base en tu estado emocional.", "crop-student-mid", ["Personalizado", "Útil al instante"], Zap],
-    ["3", "Accede a recursos de apoyo", "Explora ejercicios, guías y herramientas para tu bienestar y organización.", "crop-student-right", ["Ejercicios", "Guías y herramientas"], Download],
-    ["4", "Conecta con apoyo humano si lo necesitas", "Habla con profesionales de forma segura y confidencial.", "crop-student-human", ["Profesionales", "Confidencial"], MessageCircle],
+    ["1", "Haz tu check-in emocional", "Responde unas preguntas rápidas y anónimas sobre cómo te sientes.", "/tarjeta_1_completa.png", ["Rápido", "100% privado"], Heart],
+    ["2", "Recibe orientación inmediata", "Obtén recomendaciones personalizadas con base en tu estado emocional.", "/tarjeta_2_completa.png", ["Personalizado", "Útil al instante"], Zap],
+    ["3", "Accede a recursos de apoyo", "Explora ejercicios, guías y herramientas para tu bienestar y organización.", "/tarjeta_3_completa.png", ["Ejercicios", "Guías"], Download],
+    ["4", "Conecta con apoyo humano si lo necesitas", "Habla con profesionales de forma segura y confidencial.", "/tarjeta_4_completa.png", ["Profesionales", "Confidencial"], MessageCircle],
   ];
   return (
     <section id="funciona" className="leaf-bg relative scroll-mt-[58px] border-t border-[#cbe8ee] bg-white px-[82px] pb-0 pt-9 max-xl:px-11 max-lg:px-7">
@@ -246,13 +269,13 @@ function HowWorks() {
           <p className="mt-3 max-w-[310px] text-xs font-extrabold leading-relaxed text-[#33566a]">Te acompañamos en 4 pasos para que entiendas lo que sientes, cuide tu bienestar y rindas mejor en la universidad.</p>
         </div>
         <div className="grid grid-cols-4 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1">
-          {steps.map(([num, title, text, crop, tags, Icon], index) => (
+          {steps.map(([num, title, text, image, tags, Icon], index) => (
             <div key={title} className="relative">
               <Card className="min-h-[248px] overflow-hidden bg-gradient-to-b from-[#f7fdff] to-white">
                 <CardContent className="p-3.5">
                   <span className="absolute left-3 top-3 z-10 grid size-7 place-items-center rounded-full bg-gradient-to-b from-[#078f98] to-[#047984] text-[15px] font-black text-white">{num}</span>
                   <div className="relative h-[126px] overflow-hidden rounded-[10px] bg-[#effbfe]">
-                    <Image className={crop} src="/hero.png" alt="" fill sizes="220px" />
+                    <Image className="object-contain object-bottom pt-2" src={image} alt="" fill sizes="220px" />
                     <span className="absolute right-3 top-5 grid size-9 place-items-center rounded-xl border border-[#94d9df] bg-[#effdff]/95 text-[#047984]"><Icon className="size-5" /></span>
                   </div>
                   <h3 className="mt-3 text-[13px] font-black leading-tight">{title}</h3>
@@ -277,15 +300,18 @@ function HowWorks() {
 
 function QuickResources() {
   const items = [
-    ["Ejercicio de respiración", "Técnicas guiadas para reducir el estrés y recuperar la calma.", Leaf, "Probar ahora", "from-emerald-50"],
-    ["Plan de organización", "Organiza tu tiempo y tareas con plantillas prácticas.", CalendarDays, "Explorar", "from-violet-50"],
-    ["Seguimiento emocional", "Conoce tus patrones emocionales y tu progreso.", BarChart3, "Ver mi progreso", "from-sky-50"],
+    ["Ejercicio de respiración", "Técnicas guiadas para reducir el estrés y recuperar la calma.", Leaf, "Probar ahora", "from-emerald-50", "/recurso_1_respiracion_478.png"],
+    ["Plan de organización", "Organiza tu tiempo y tareas con plantillas prácticas.", CalendarDays, "Explorar", "from-violet-50", "/cuadro_4_estudiante_laptop.png"],
+    ["Seguimiento emocional", "Conoce tus patrones emocionales y tu progreso.", BarChart3, "Ver mi progreso", "from-sky-50", "/recurso_3_diario_agradece_pequeno.png"],
   ];
   return (
     <div className="mx-auto my-3 grid max-w-[850px] grid-cols-3 gap-5 max-lg:grid-cols-1">
-      {items.map(([title, text, Icon, action, color]) => (
-        <article key={title} className={cn("grid min-h-[82px] grid-cols-[54px_1fr] items-center gap-4 rounded-[12px] bg-gradient-to-br to-white px-5 py-4", color)}>
-          <TrustIcon><Icon className="size-7" /></TrustIcon>
+      {items.map(([title, text, Icon, action, color, image]) => (
+        <article key={title} className={cn("grid min-h-[92px] grid-cols-[68px_1fr] items-center gap-4 rounded-[12px] bg-gradient-to-br to-white px-4 py-3", color)}>
+          <div className="relative h-[68px] overflow-hidden rounded-[12px] bg-white/75">
+            <Image className="object-contain p-1" src={image} alt="" fill sizes="68px" />
+            <span className="absolute bottom-1 right-1 grid size-6 place-items-center rounded-full bg-white/95 text-[#047984]"><Icon className="size-3.5" /></span>
+          </div>
           <div><h4 className="text-[13px] font-black">{title}</h4><p className="mt-1 text-[10px] font-bold leading-snug text-[#33566a]">{text}</p><Link href="#recursos" className="mt-2 inline-block text-[10px] font-black text-[#047984]">{action} →</Link></div>
         </article>
       ))}
@@ -297,7 +323,7 @@ function ProcessCta() {
   return (
     <section className="mx-auto mt-3 grid max-w-[980px] grid-cols-[230px_1fr_auto] items-center gap-6 max-lg:grid-cols-1 max-lg:text-center">
       <div className="h-[78px] overflow-hidden max-lg:mx-auto">
-        <Image className="h-[120px] w-[250px] object-cover object-bottom" src="/hero.png" alt="" width={250} height={120} />
+        <Image className="h-[78px] w-[230px] object-contain object-bottom" src="/personas_juntas.png" alt="" width={230} height={82} />
       </div>
       <div>
         <h2 className="text-[21px] font-black">Empieza a cuidar tu bienestar hoy</h2>
@@ -312,7 +338,12 @@ function ProcessCta() {
 }
 
 function CheckInPlans() {
-  const moods = ["Ansioso/a", "Cansado/a", "Saturado/a", "Tranquilo/a"];
+  const moods = [
+    ["Ansioso/a", "/emocion_1_ansioso.png"],
+    ["Cansado/a", "/emocion_2_cansado.png"],
+    ["Saturado/a", "/emocion_3_saturado.png"],
+    ["Tranquilo/a", "/emocion_4_tranquilo.png"],
+  ];
   return (
     <section id="checkin" className="scroll-mt-[58px] bg-white px-20 py-14 max-xl:px-10 max-lg:px-6">
       <div className="grid gap-8 lg:grid-cols-[330px_1fr_260px]">
@@ -334,7 +365,11 @@ function CheckInPlans() {
             <div className="mt-5 rounded-[14px] border border-[#e2eef2] p-4">
               <h4 className="font-black">¿Cómo te sientes hoy?</h4>
               <div className="mt-4 grid grid-cols-4 gap-3 max-md:grid-cols-2">
-                {moods.map((mood) => <button key={mood} className="h-20 rounded-[12px] border border-[#eadcc9] bg-gradient-to-br from-violet-50 to-amber-50 text-xs font-black">{mood}</button>)}
+                {moods.map(([mood, image]) => (
+                  <button key={mood} aria-label={mood} className="grid h-28 content-center justify-items-center rounded-[12px] border border-[#eadcc9] bg-gradient-to-br from-violet-50 to-amber-50 px-2 transition hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(12,70,88,.08)]">
+                    <Image className="h-[82px] w-full object-contain" src={image} alt="" width={97} height={65} />
+                  </button>
+                ))}
               </div>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-3 max-md:grid-cols-1">
@@ -349,14 +384,8 @@ function CheckInPlans() {
         </Card>
         <div className="rounded-[18px] border border-[#d7edf2] bg-gradient-to-b from-white to-[#f4fcfe] p-6 text-center">
           <h3 className="font-black">Así se siente tu check-in</h3>
-          <div className="mx-auto mt-4 h-[330px] max-w-[180px] rounded-[28px] border-[8px] border-[#172632] bg-white p-3 shadow-2xl">
-            <div className="h-28 rounded-[16px] bg-gradient-to-br from-[#d8f5fb] to-[#fce4b7]" />
-            <h4 className="mt-4 text-xs font-black">Gracias por compartir cómo te sientes.</h4>
-            <div className="mt-4 space-y-2 text-left text-[10px] font-bold">
-              <div className="rounded-lg bg-[#effcfd] p-2">Respiración para ansiedad</div>
-              <div className="rounded-lg bg-violet-50 p-2">Escribe lo que sientes</div>
-              <div className="rounded-lg bg-blue-50 p-2">Habla con alguien</div>
-            </div>
+          <div className="relative mx-auto mt-4 h-[352px] max-w-[210px]">
+            <Image className="object-contain object-center drop-shadow-[0_18px_28px_rgba(12,70,88,.18)]" src="/cuadro_3_mockup_celular.png" alt="Vista móvil del check-in emocional" fill sizes="210px" />
           </div>
         </div>
       </div>
@@ -392,7 +421,7 @@ function Resources() {
       <div className="rounded-[24px] border border-[#cbe8ee] bg-white p-10 shadow-[0_22px_54px_rgba(12,70,88,.1)]">
         <div className="grid grid-cols-[1fr_520px] items-end gap-8 max-lg:grid-cols-1">
           <div><h2 className="text-[44px] font-black leading-tight">Recursos para<br />acompañarte en tu día a día</h2><p className="mt-3 max-w-[480px] font-bold text-[#33566a]">Herramientas prácticas para tu bienestar emocional, mejorar tu concentración y cuidar de ti.</p></div>
-          <div className="relative h-[190px] overflow-hidden rounded-[18px] bg-[#e9faff]"><Image className="object-cover object-center" src="/hero.png" alt="" fill /></div>
+          <div className="relative h-[190px] overflow-hidden rounded-[18px] bg-[#e9faff]"><Image className="object-contain object-bottom p-3" src="/recursos_banner_personas.png" alt="Estudiantes usando recursos de bienestar" fill sizes="520px" /></div>
         </div>
         <div className="mt-6 grid grid-cols-[1fr_auto_auto] gap-4 max-lg:grid-cols-1">
           <div className="relative"><Search className="absolute left-4 top-1/2 size-5 -translate-y-1/2 text-[#6b8796]" /><Input className="h-12 pl-12" placeholder="Buscar recursos, guías o herramientas..." /></div>
@@ -400,9 +429,14 @@ function Resources() {
           <Button variant="outline"><BarChart3 className="size-4" />Más relevantes</Button>
         </div>
         <div className="mt-5 grid grid-cols-4 gap-4 max-xl:grid-cols-2 max-sm:grid-cols-1">
-          {resourceCards.map(([title, text, Icon, count, color]) => (
+          {resourceCards.map(([title, text, _Icon, count, color, image]) => (
             <Card key={title} className={cn("bg-gradient-to-br shadow-none", color)}>
-              <CardContent className="text-center"><Icon className="mx-auto size-9 text-[#078f98]" /><h3 className="mt-3 text-sm font-black">{title}</h3><p className="mt-1 text-[11px] font-bold text-[#33566a]">{text}</p><span className="mt-3 inline-block rounded-full bg-white px-3 py-1 text-[10px] font-black text-[#047984]">{count}</span></CardContent>
+              <CardContent className="text-center">
+                <div className="relative mx-auto h-[92px] w-full max-w-[176px]">
+                  <Image className="object-contain" src={image} alt={title} fill sizes="176px" />
+                </div>
+                <p className="mx-auto mt-3 max-w-[220px] text-[12px] font-bold leading-snug text-[#33566a]">{text}</p><span className="mt-4 inline-block rounded-full bg-white px-3 py-1 text-[10px] font-black text-[#047984]">{count}</span>
+              </CardContent>
             </Card>
           ))}
         </div>
@@ -415,9 +449,18 @@ function Support() {
   return (
     <section id="apoyo" className="scroll-mt-[58px] bg-white px-20 py-14 max-xl:px-10 max-lg:px-6">
       <div className="grid items-center gap-8 lg:grid-cols-[.9fr_1.1fr]">
-        <div><h2 className="text-[44px] font-black leading-tight">Apoyo emocional<br />cuando lo necesitas</h2><p className="mt-4 max-w-[520px] font-bold text-[#33566a]">Un espacio seguro para hablar, ordenar lo que sientes y recibir orientación sin juicios.</p></div>
+        <div>
+          <h2 className="text-[44px] font-black leading-tight">Apoyo emocional<br />cuando lo necesitas</h2>
+          <p className="mt-4 max-w-[520px] font-bold text-[#33566a]">Un espacio seguro para hablar, ordenar lo que sientes y recibir orientación sin juicios.</p>
+          <div className="relative mt-7 h-[260px] overflow-hidden rounded-[22px] bg-[#e9faff]">
+            <Image className="object-contain object-bottom p-4" src="/apoyo_grupo_principal.png" alt="Grupo de estudiantes recibiendo apoyo emocional" fill sizes="520px" />
+          </div>
+        </div>
         <div className="grid gap-4">
-          {supportOptions.map(([title, text, Icon]) => <Card key={title} className="shadow-none"><CardContent className="grid grid-cols-[56px_1fr] gap-4"><TrustIcon><Icon className="size-6" /></TrustIcon><div><h3 className="font-black">{title}</h3><p className="text-sm font-bold text-[#33566a]">{text}</p></div></CardContent></Card>)}
+          {supportOptions.map(([title, text, Icon, image]) => <Card key={title} className="shadow-none"><CardContent className="grid grid-cols-[82px_1fr] items-center gap-4"><div className="relative h-[78px] overflow-hidden rounded-[14px] bg-[#effbfe]"><Image className="object-contain p-1" src={image} alt="" fill sizes="82px" /><span className="absolute bottom-1 right-1 grid size-7 place-items-center rounded-full bg-white/95 text-[#047984]"><Icon className="size-4" /></span></div><div><h3 className="font-black">{title}</h3><p className="text-sm font-bold text-[#33566a]">{text}</p></div></CardContent></Card>)}
+          <div className="relative h-[88px] overflow-hidden rounded-[16px] bg-[#effbfe]">
+            <Image className="object-contain object-center p-2" src="/apoyo_banner_grupo_inferior.png" alt="" fill sizes="560px" />
+          </div>
         </div>
       </div>
     </section>
@@ -427,14 +470,61 @@ function Support() {
 function Organization() {
   return (
     <section id="organizacion" className="scroll-mt-[58px] bg-[#f5fbfd] px-20 py-14 max-xl:px-10 max-lg:px-6">
-      <div className="grid gap-8 lg:grid-cols-[1fr_430px]">
-        <div><h2 className="text-[44px] font-black leading-tight">Organiza tu vida académica sin perder tu calma</h2><p className="mt-4 max-w-[560px] font-bold text-[#33566a]">Planifica clases, tareas, descansos y recursos emocionales en una rutina más sostenible.</p></div>
-        <Card>
-          <CardContent>
-            <div className="flex items-center justify-between"><h3 className="text-xl font-black">Plan de hoy</h3><CalendarDays className="size-6 text-[#078f98]" /></div>
-            <div className="mt-4 space-y-3">{plannerItems.map(([type, title, time]) => <div key={title} className="grid grid-cols-[64px_1fr_auto] items-center rounded-xl bg-[#f4fbfd] p-3 text-sm"><span className="font-black text-[#047984]">{type}</span><span className="font-bold">{title}</span><span className="text-xs font-black text-[#6b8796]">{time}</span></div>)}</div>
-          </CardContent>
-        </Card>
+      <div className="mx-auto max-w-[1180px]">
+        <div className="grid items-center gap-8 lg:grid-cols-[.85fr_1.15fr]">
+          <div>
+            <h2 className="text-[44px] font-black leading-tight max-md:text-[36px]">Organiza tu vida académica sin perder tu calma</h2>
+            <p className="mt-4 max-w-[560px] font-bold text-[#33566a]">Planifica clases, entregas, sesiones de estudio y descansos en una rutina visual que se siente manejable.</p>
+            <div className="mt-6 grid max-w-[520px] grid-cols-3 gap-3">
+              {[
+                ["7", "herramientas"],
+                ["5", "consejos"],
+                ["1", "plan semanal"],
+              ].map(([value, label]) => (
+                <div key={label} className="rounded-[16px] border border-[#cbe8ee] bg-white px-4 py-3 max-sm:px-3">
+                  <strong className="block text-3xl font-black text-[#078f98] max-sm:text-2xl">{value}</strong>
+                  <span className="text-xs font-black leading-tight text-[#33566a] max-sm:text-[10px]">{label}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 relative h-[92px] overflow-hidden rounded-[18px] bg-white">
+              <Image className="object-contain object-center p-3" src="/herramienta_7_plantillas_descargables.png" alt="Plantillas descargables para organizar la semana" fill sizes="520px" />
+            </div>
+          </div>
+          <div className="relative min-h-[410px] overflow-hidden rounded-[26px] border border-[#cbe8ee] bg-white shadow-[0_22px_54px_rgba(12,70,88,.1)] max-md:min-h-[300px]">
+            <Image className="object-contain object-center p-5" src="/organizacion_plan_semanal_completo.png" alt="Vista de plan semanal académico" fill sizes="680px" />
+          </div>
+        </div>
+
+        <div className="mt-7 grid gap-5 lg:grid-cols-[1fr_360px]">
+          <div className="grid grid-cols-3 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1">
+            {organizationTools.map(([title, text, image]) => (
+              <article key={title} aria-label={`${title}. ${text}`} className="grid min-h-[132px] place-items-center rounded-[16px] border border-[#d9edf2] bg-white p-4 shadow-[0_10px_26px_rgba(12,70,88,.05)]">
+                <div className="relative h-[96px] w-full">
+                  <Image className="object-contain object-center" src={image} alt="" fill sizes="190px" />
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <Card className="self-stretch">
+            <CardContent className="grid h-full content-between">
+              <div className="flex items-center justify-between"><h3 className="text-xl font-black">Plan de hoy</h3><CalendarDays className="size-6 text-[#078f98]" /></div>
+              <div className="mt-4 space-y-3">{plannerItems.map(([type, title, time]) => <div key={title} className="grid grid-cols-[64px_1fr_auto] items-center rounded-xl bg-[#f4fbfd] p-3 text-sm max-sm:grid-cols-1 max-sm:gap-1"><span className="font-black text-[#047984]">{type}</span><span className="font-bold">{title}</span><span className="text-xs font-black text-[#6b8796]">{time}</span></div>)}</div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="mt-6 rounded-[22px] bg-white px-5 py-4 shadow-[0_14px_34px_rgba(12,70,88,.06)]">
+          <h3 className="text-center text-sm font-black text-[#047984]">Consejos para estudiar con más calma</h3>
+          <div className="mt-4 grid grid-cols-5 gap-3 max-lg:grid-cols-3 max-sm:grid-cols-1">
+            {organizationTips.map(([title, image]) => (
+              <article key={title} aria-label={title} className="grid min-h-[148px] place-items-center rounded-[16px] bg-[#f4fbfd] px-3 py-3">
+                <Image className="h-[124px] w-full object-contain" src={image} alt="" width={110} height={127} />
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -444,8 +534,25 @@ function About() {
   return (
     <section id="nosotros" className="scroll-mt-[58px] bg-white px-20 py-14 max-xl:px-10 max-lg:px-6">
       <div className="grid items-center gap-8 lg:grid-cols-[420px_1fr]">
-        <div className="relative h-[260px] overflow-hidden rounded-[22px] bg-[#e9faff]"><Image className="object-cover object-center" src="/hero.png" alt="Comunidad universitaria de Modo Calma" fill /></div>
-        <div><h2 className="text-[44px] font-black leading-tight">Tecnología con empatía para estudiantes</h2><p className="mt-4 max-w-[640px] font-bold leading-relaxed text-[#33566a]">Modo Calma nace para acompañar la vida universitaria con herramientas simples, privacidad real y apoyo humano cuando hace falta. Diseñamos cada experiencia pensando en estudiantes que necesitan claridad, contención y organización.</p><div className="mt-6 grid grid-cols-3 gap-4 max-sm:grid-cols-1">{["Privacidad", "Bienestar", "Acompañamiento"].map((item) => <div key={item} className="rounded-xl bg-[#eefbfb] p-4 text-center text-sm font-black text-[#047984]">{item}</div>)}</div></div>
+        <div className="relative h-[300px] overflow-hidden rounded-[22px] bg-[#e9faff]"><Image className="object-contain object-bottom p-3" src="/sobre_nosotros_grupo_principal.png" alt="Comunidad universitaria de Modo Calma" fill sizes="420px" /></div>
+        <div>
+          <h2 className="text-[44px] font-black leading-tight">Tecnología con empatía para estudiantes</h2>
+          <p className="mt-4 max-w-[640px] font-bold leading-relaxed text-[#33566a]">Modo Calma nace para acompañar la vida universitaria con herramientas simples, privacidad real y apoyo humano cuando hace falta. Diseñamos cada experiencia pensando en estudiantes que necesitan claridad, contención y organización.</p>
+          <div className="mt-6 grid grid-cols-3 gap-4 max-sm:grid-cols-1">{["Privacidad", "Bienestar", "Acompañamiento"].map((item) => <div key={item} className="rounded-xl bg-[#eefbfb] p-4 text-center text-sm font-black text-[#047984]">{item}</div>)}</div>
+          <div className="mt-6 grid grid-cols-4 gap-3 max-md:grid-cols-2">
+            {[
+              ["Kevin", "/fundador_1_kevin.png"],
+              ["Mivra", "/fundador_2_mivra.png"],
+              ["Gigi", "/fundador_3_gigi.png"],
+              ["Santiago", "/fundador_4_santiago.png"],
+            ].map(([name, image]) => (
+              <div key={name} className="grid min-h-[128px] content-end justify-items-center rounded-[16px] bg-[#f4fbfd] px-3 pt-3 text-center text-xs font-black text-[#047984]">
+                <Image className="h-[86px] w-full object-contain object-bottom" src={image} alt="" width={88} height={113} />
+                <span className="py-2">{name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

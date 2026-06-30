@@ -86,7 +86,9 @@ input {
 }
 
 .hero-image {
-  object-fit: fill;
+  width: min(100%, 648px);
+  height: auto;
+  filter: saturate(1.04) contrast(1.02);
 }
 
 .crop-student-left {
