@@ -27,6 +27,8 @@ import {
   Headphones,
   ClipboardCheck,
   Footprints,
+  Star,
+  GraduationCap,
 } from "lucide-react";
 import { Button, buttonVariantsForLink } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -389,29 +391,115 @@ function CheckInPlans() {
           </div>
         </div>
       </div>
-      <div className="mt-6 grid grid-cols-[1fr_1fr_260px] gap-4 max-lg:grid-cols-1">
-        <PlanCard title="Gratis" price="S/ 0" features={["Check-in emocional diario", "Recursos de bienestar", "Ejercicios guiados básicos", "Organización académica básica"]} />
-        <PlanCard title="Premium estudiante" price="S/ 29.90" featured features={["Todo lo del plan Gratis", "Apoyo profesional prioritario", "Contenido exclusivo", "Estadísticas avanzadas"]} />
-        <div className="grid content-center gap-4 text-sm font-bold text-[#33566a]">
-          <p><ShieldCheck className="mr-2 inline size-5 text-[#047984]" />Tu bienestar es seguro</p>
-          <p><Heart className="mr-2 inline size-5 text-[#047984]" />Apoyo real y humano</p>
-          <p><Users className="mr-2 inline size-5 text-[#047984]" />Diseñado para estudiantes</p>
-        </div>
-      </div>
+      <PricingPlans />
     </section>
   );
 }
 
-function PlanCard({ title, price, features, featured }) {
+function PricingPlans() {
+  const trustItems = [
+    [Lock, "Privacidad y confianza", "Tus datos están protegidos"],
+    [Users, "Apoyo profesional", "Equipo de psicólogos especializados"],
+    [Cloud, "Acceso en todos lados", "Desde la app o la web, cuando lo necesites"],
+    [GraduationCap, "Hecho para estudiantes", "Diseñado para acompañarte en tu vida académica"],
+  ];
+
   return (
-    <Card className={cn("shadow-none", featured && "border-[#078f98] ring-2 ring-[#bdeff3]")}>
-      <CardContent>
-        <div className="flex items-center justify-between"><h3 className="text-lg font-black">{title}</h3>{featured && <span className="rounded-full bg-[#dff6f8] px-3 py-1 text-xs font-black text-[#047984]">Más popular</span>}</div>
-        <ul className="mt-4 space-y-2 text-sm font-bold text-[#33566a]">{features.map((f) => <li key={f}><Check className="mr-2 inline size-4 text-[#047984]" />{f}</li>)}</ul>
-        <p className="mt-5 text-3xl font-black">{price}<span className="text-xs text-[#6b8796]"> / mes</span></p>
-        <Button className="mt-4 w-full" variant={featured ? "default" : "outline"}>{featured ? "Probar 7 días gratis" : "Comenzar gratis"}</Button>
-      </CardContent>
-    </Card>
+    <section className="relative mt-10 overflow-hidden rounded-[30px] border border-[#cbe8ee] bg-gradient-to-br from-white via-[#fbfeff] to-[#eefbfb] px-10 py-10 shadow-[0_24px_70px_rgba(12,70,88,.1)] max-lg:px-6">
+      <div className="pointer-events-none absolute -left-14 top-12 h-56 w-32 rounded-full bg-[#d5f6fb]/70 blur-sm" />
+      <div className="pointer-events-none absolute -right-10 top-10 h-48 w-28 rounded-full bg-[#e8f8ff]/80 blur-sm" />
+
+      <div className="relative mx-auto max-w-[820px] text-center">
+        <span className="inline-flex items-center gap-2 rounded-full border border-[#cbe8ee] bg-[#eefbfb] px-5 py-2 text-xs font-black text-[#047984]"><Leaf className="size-4" />Planes pensados para tu bienestar</span>
+        <h2 className="mt-4 text-[42px] font-black leading-tight max-md:text-[34px]">Plan gratuito y plan premium estudiantil</h2>
+        <p className="mx-auto mt-3 max-w-[620px] text-sm font-bold leading-relaxed text-[#33566a]">Elige el plan que mejor se adapta a ti y comienza a cuidar tu bienestar emocional, tu organización y tu crecimiento personal.</p>
+      </div>
+
+      <div className="relative mt-8 grid items-stretch gap-6 lg:grid-cols-[1fr_1.08fr_.95fr]">
+        <PlanCard
+          title="Gratis"
+          description="Todo lo esencial para empezar tu camino de bienestar."
+          price="S/ 0"
+          icon={Leaf}
+          features={[
+            ["Check-in emocional diario", "seguimiento simple de cómo te sientes"],
+            ["Recursos básicos", "guías y ejercicios para tu bienestar"],
+            ["Organización académica básica", "planificador y recordatorios"],
+          ]}
+        />
+        <PlanCard
+          title="Premium estudiante"
+          description="Todo lo del plan gratis, más herramientas avanzadas para tu bienestar integral."
+          price="S/ 9.90"
+          icon={Star}
+          featured
+          features={[
+            ["Apoyo profesional prioritario", "respuestas más rápidas"],
+            ["Contenido exclusivo", "recursos y herramientas avanzadas"],
+            ["Seguimiento emocional", "acompañamiento personalizado"],
+            ["Estadísticas avanzadas", "reportes y progreso detallado"],
+          ]}
+        />
+
+        <aside className="grid gap-5">
+          <div className="relative min-h-[250px] overflow-hidden rounded-[24px] bg-[#e9faff]">
+            <div className="absolute left-5 top-4 z-10 inline-flex items-center gap-2 rounded-[14px] bg-white px-4 py-2 text-xs font-black text-[#33566a] shadow-[0_12px_28px_rgba(12,70,88,.12)]"><Zap className="size-5 text-[#f59b33]" />Más elegido por estudiantes</div>
+            <Image className="object-cover object-center" src="/hero.png" alt="Estudiantes de Modo Calma" fill sizes="360px" />
+            <span className="absolute right-5 top-10 grid size-14 place-items-center rounded-full bg-white text-[#078f98] shadow-[0_12px_24px_rgba(12,70,88,.12)]"><Heart className="size-7 fill-[#bdeff3]" /></span>
+          </div>
+          <div className="grid grid-cols-[58px_1fr] items-center gap-4 rounded-[22px] border border-[#cbe8ee] bg-white/85 p-5">
+            <TrustIcon><ShieldCheck className="size-7" /></TrustIcon>
+            <div>
+              <h3 className="font-black">Tu bienestar es nuestra prioridad</h3>
+              <p className="mt-1 text-xs font-bold leading-relaxed text-[#33566a]">Tus datos están protegidos y son 100% confidenciales. Puedes cancelar cuando quieras.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div className="relative mt-7 grid grid-cols-4 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1">
+        {trustItems.map(([Icon, title, text]) => (
+          <article key={title} className="grid grid-cols-[52px_1fr] items-center gap-3 rounded-[18px] bg-white/80 p-4">
+            <TrustIcon><Icon className="size-6" /></TrustIcon>
+            <div>
+              <h3 className="text-sm font-black">{title}</h3>
+              <p className="mt-1 text-[11px] font-bold leading-snug text-[#33566a]">{text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p className="relative mt-6 text-center text-[11px] font-bold text-[#6b8796]">*Puedes cambiar o cancelar tu plan en cualquier momento desde tu cuenta.</p>
+    </section>
+  );
+}
+
+function PlanCard({ title, description, price, features, featured, icon: Icon }) {
+  return (
+    <article className={cn("relative overflow-hidden rounded-[24px] border border-[#cbe8ee] bg-white p-7 shadow-[0_18px_42px_rgba(12,70,88,.08)]", featured && "border-[#d7ccff] bg-gradient-to-br from-white via-[#fbf9ff] to-[#f3efff] shadow-[0_22px_54px_rgba(83,62,170,.14)]")}>
+      {featured && <span className="absolute right-5 top-5 rounded-full bg-white px-4 py-2 text-xs font-black text-[#5d45bf] shadow-[0_10px_24px_rgba(83,62,170,.12)]">Precio especial</span>}
+      <div className="grid grid-cols-[72px_1fr] items-center gap-4">
+        <span className={cn("grid size-16 place-items-center rounded-full bg-[#d6f4f3] text-[#078f98]", featured && "bg-[#6b50c8] text-white")}><Icon className="size-9" /></span>
+        <div>
+          <h3 className={cn("text-[24px] font-black", featured && "text-[#4e36a9]")}>{title}</h3>
+          <p className="mt-1 text-xs font-bold leading-snug text-[#33566a]">{description}</p>
+        </div>
+      </div>
+      <div className="mt-6">
+        <p className={cn("text-center text-[46px] font-black leading-none", featured ? "text-[#4e36a9]" : "text-[#06324a]")}>{price}<span className="ml-1 text-sm font-black text-[#33566a]">/ mes</span></p>
+        {featured && <p className="mx-auto mt-3 w-max rounded-full bg-[#eeeafe] px-4 py-1 text-[10px] font-black text-[#5d45bf]">Precio especial para estudiantes</p>}
+      </div>
+      <div className="my-6 h-px bg-[#d9edf2]" />
+      <p className="text-xs font-black text-[#33566a]">{featured ? "Incluye todo lo de Gratis, y además:" : "Incluye:"}</p>
+      <ul className="mt-4 space-y-4">
+        {features.map(([feature, detail]) => (
+          <li key={feature} className="grid grid-cols-[24px_1fr] gap-3 text-sm">
+            <span className={cn("mt-0.5 grid size-5 place-items-center rounded-full border border-[#87d8d5] text-[#047984]", featured && "border-[#9b87df] text-[#5d45bf]")}><Check className="size-3.5" /></span>
+            <span><strong className="block font-black">{feature}</strong><small className="block text-[11px] font-bold leading-tight text-[#6b8796]">{detail}</small></span>
+          </li>
+        ))}
+      </ul>
+      <Button className={cn("mt-7 w-full", featured && "bg-gradient-to-b from-[#6b50c8] to-[#5236b0] shadow-[0_12px_24px_rgba(83,62,170,.22)]")} variant={featured ? "default" : "outline"}>{featured ? "Elegir Premium estudiante" : "Comenzar gratis"}</Button>
+    </article>
   );
 }
 
